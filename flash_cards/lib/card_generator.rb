@@ -9,7 +9,6 @@ class CardGenerator
     @filedata = File.open(filename, 'r').read.split(/\n/).map{ |card_string| card_string.split(',') }
     # Then shuffle each elemenet of the array into the cards
     self.filedata.each{ |card| self.cards << Card.new(card[0], card[1], card[2]) }
-
   end
-
+  
 end

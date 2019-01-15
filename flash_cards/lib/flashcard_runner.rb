@@ -13,7 +13,7 @@ require './lib/card_generator'
 # Iteration 3 end
 
 # Iteration 4 - read in cards from txt file
-filename = "./lib/cards.txt"
+filename = "./data/cards.txt"
 cards = CardGenerator.new(filename).cards
 deck = Deck.new(cards)
 # Iteration 4 end
