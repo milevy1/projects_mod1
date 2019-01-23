@@ -34,7 +34,7 @@ class MapPatternTest < Minitest::Test
     numbers = [1, 2, 3, 4, 5]
     doubles = []
     numbers.each do |number|
-      # Your Code Here
+      doubles << number * 2
     end
     assert_equal [2, 4, 6, 8, 10], doubles
   end
@@ -49,7 +49,7 @@ class MapPatternTest < Minitest::Test
     }
     doubles = {}
     numbers.each do |name, number|
-      # Your Code Here
+      doubles[name] = number * 2
     end
     expected = {
       one: 2,
@@ -63,8 +63,7 @@ class MapPatternTest < Minitest::Test
 
   def test_5
     numbers = [1, 2, 3, 4, 5]
-    squares = []
-    # Your Code Here
+    squares = numbers.map{ |number| number * number }
 
     assert_equal [1, 4, 9, 16, 25], squares
   end
@@ -78,7 +77,7 @@ class MapPatternTest < Minitest::Test
       five: 5
     }
     squares = {}
-    # Your Code Here
+    numbers.each{ |name, number| squares[name] = number * number }
 
     expected = {
       one: 1,
@@ -92,7 +91,7 @@ class MapPatternTest < Minitest::Test
 
   def test_7
     names = ["alice", "bob", "charlie", "david", "eve"]
-    #Your Code Here
+    lengths = names.map{ |name| name.length }
 
     assert_equal [5, 3, 7, 5, 3], lengths
   end
@@ -105,7 +104,8 @@ class MapPatternTest < Minitest::Test
       uncle: "david",
       sister: "eve"
     }
-    #Your Code Here
+    lengths = {}
+    family.each{ |relationship, name| lengths[relationship] = name.length }
 
     expected = {
       mother: 5,
@@ -119,7 +119,7 @@ class MapPatternTest < Minitest::Test
 
   def test_9
     names = ["alice", "bob", "charlie", "david", "eve"]
-    #Your Code Here
+    backwards = names.map{ |name| name.reverse }
 
     assert_equal ["ecila", "bob", "eilrahc", "divad", "eve"], backwards
   end
@@ -132,8 +132,9 @@ class MapPatternTest < Minitest::Test
       uncle: "david",
       sister: "eve"
     }
-    #Your Code Here
-    
+    backwards = {}
+    family.each{ |relationship, name| backwards[relationship] = name.reverse }
+
     expected = {
       mother: "ecila",
       father: "bob",
@@ -142,5 +143,6 @@ class MapPatternTest < Minitest::Test
       sister: "eve"
     }
     assert_equal expected, backwards
+
   end
 end
